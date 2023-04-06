@@ -10,7 +10,7 @@ class MixesController < ApplicationController
   end
 
   def create
-    @mixes = Mix.new(toilet_params)
+    @mixes = Mix.new(mix_params)
     @mixes.user = current_user
     if @mixes.save
       # redirect_to toilet_path(@mixes)
