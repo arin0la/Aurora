@@ -4,7 +4,10 @@
       save_volumes_target: "form",
       action: "submit->save-volumes#send"
     }) do |f| %>
-    <audio src="" controls loop></audio>
+    <% @sounds.each do |sound| %>
+      <audio controls loop id="<%= sound.id %>" src="<%= sound.source %>" ></audio>
+    <% end %>
+    <audio src="" id="" controls loop volume="0"></audio>
     <%= f.button :submit %>
   <% end %>
 </div>

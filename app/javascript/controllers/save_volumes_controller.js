@@ -6,11 +6,19 @@ export default class extends Controller {
 
   connect() {
     console.log("hello controller")
+    document.querySelectorAll("audio").forEach((ele) => {
+      ele.volume = 0
+    })
   }
 
   send(event) {
     event.preventDefault();
-    console.log("sending");
+    const volumes = {};
+    document.querySelectorAll("audio").forEach((ele) => {
+      console.log("a")
+      volumes[`${ele.id}`] = ele.volume
+    })
+    console.log(volumes);
     fetch(this.formTarget.action, {
       method: "POST",
       headers: { "Accept": "application/json" },
