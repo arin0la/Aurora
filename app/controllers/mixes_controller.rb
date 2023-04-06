@@ -11,6 +11,7 @@ class MixesController < ApplicationController
 
   def new
     @mixes = Mix.new
+    @sounds = Sound.all
   end
 
   def create
