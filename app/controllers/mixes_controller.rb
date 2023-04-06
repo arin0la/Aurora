@@ -1,8 +1,12 @@
 class MixesController < ApplicationController
-  before_action :set_mix, only: %i[show edit update destroy]
+  before_action :set_mix, only: %i[show destroy]
 
   def index
     @mixes = Mix.all
+  end
+
+  def show
+
   end
 
   def new
