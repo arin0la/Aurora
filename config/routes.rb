@@ -6,5 +6,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :sound, only: [:index]
+  resources :sounds, only: [:index]
+  resources :mixes, except: [:edit, :update]
+  get "/mymix", to: "mixes#mymix"
+  resources :videos, only: [:index]
 end
