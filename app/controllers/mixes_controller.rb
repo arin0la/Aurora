@@ -17,10 +17,16 @@ class MixesController < ApplicationController
   def create
     @mixes = Mix.new(mix_params)
     @mixes.user = current_user
-    if @mixes.save
-      # redirect_to toilet_path(@mixes)
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+
+      if @mixes.save
+        format.html # { redirect_to mix_path(@mixes) }
+        format.json # TODO
+      else
+        format.html {render :new, status: :unprocessable_entity}
+        format.json # TODO
+      end
     end
   end
 

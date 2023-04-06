@@ -1,0 +1,10 @@
+<div data-controller="save-volumes">
+  <%= simple_form_for(@mixes,
+    data: {
+      save_volumes_target: "form",
+      action: "submit->save-volumes#send"
+    }) do |f| %>
+    <audio src="" controls loop></audio>
+    <%= f.button :submit %>
+  <% end %>
+</div>
