@@ -1,3 +1,5 @@
+require "json"
+
 class MixesController < ApplicationController
   before_action :set_mix, only: %i[show destroy]
   attr_accessor :vols
@@ -18,17 +20,20 @@ class MixesController < ApplicationController
 
   def create
     @mixes = Mix.new(mix_params)
-    raise
+    vols_hash = JSON.parse(params["mix"]["vols"])
     @mixes.user = current_user
-    respond_to do |format|
-
-      if @mixes.save
-        format.html # { redirect_to mix_path(@mixes) }
-        format.json # TODO
-      else
-        format.html {render :new, status: :unprocessable_entity}
-        format.json # TODO
+    if @mixes.save
+      vols_hash.each do |key, value|
+        if value > 0
+          mixsound = MixSound.new(volume: (value * 100))
+          mixsound.mix = @mixes
+          mixsound.sound = Sound.find(key.to_i)
+          mixsound.save!
+        end
       end
+      redirect_to mix_path(@mixes)
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
