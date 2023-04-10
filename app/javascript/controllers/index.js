@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import SaveVolumesController from "./save_volumes_controller"
 application.register("save-volumes", SaveVolumesController)
+
+import SetVolumeController from "./set_volume_controller"
+application.register("set-volume", SetVolumeController)

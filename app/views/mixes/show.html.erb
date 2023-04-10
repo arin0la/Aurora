@@ -1,0 +1,10 @@
+<h1><%= @mixes.name %></h1>
+<div data-controller="set-volume">
+  <% @mixes.mix_sounds.each do |mixsound| %>
+    <p><%= mixsound.sound.name %></p>
+    <%= audio_tag(mixsound.sound.name,
+    loop: true,
+    data: {set_volume_target: "audio", volume: mixsound.volume}) %>
+  <% end %>
+  <button data-action="click->set-volume#playmix">play</button>
+</div>
