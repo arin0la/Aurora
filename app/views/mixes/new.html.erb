@@ -1,17 +1,20 @@
 <div data-controller="save-volumes">
   <%= form_with model: @mixes,
     data: {
-      save_volumes_target: "form",
-      action: "submit->save-volumes#send"
+      save_volumes_target: "form"
     } do |f| %>
     <% @sounds.each do |sound| %>
-      <audio controls loop id="<%= sound.id %>" src="<%= sound.source %>" ></audio>
+      <%= audio_tag(sound.name,
+        controls: true,
+        loop: true,
+        data: {save_volumes_target: "sound", action: "volumechange->save-volumes#change"},
+        id: sound.id) %>
     <% end %>
-    <%= audio_tag("Brook.wav", controls: true, loop: true, id: "brook") %>
+    <%#= audio_tag("Brook.wav", controls: true, loop: true, id: "brook") %>
     <%= audio_tag("Australian Rainforest.wav", controls: true, loop: true, id: "rainforest") %>
     <%= audio_tag("Transformation.wav", controls: true, loop: true, id: "transformation") %>
     <%= audio_tag("golden chant.wav", controls: true, loop: true, id: "chant") %>
-    <%= f.hidden_field :vols, value: @vols_hash %>
+    <%= f.hidden_field :vols, data: {save_volumes_target: "volumesData"},value: @vols_hash %>
     <%= f.button :submit %>
   <% end %>
 </div>
