@@ -8,6 +8,7 @@
 
 Video.destroy_all
 Sound.destroy_all
+MixSound.destroy_all
 # User.destroy_all
 puts "Cleaning database..."
 
