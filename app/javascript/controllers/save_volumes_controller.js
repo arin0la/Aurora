@@ -18,7 +18,7 @@ export default class extends Controller {
   change() {
     const volumes = {};
     this.soundTargets.forEach((ele) => {
-      volumes[`${ele.id}`] = ele.volume
+      volumes[`${ele.id}`] = ele.muted ? 0 : ele.volume
     });
     this.volumesDataTarget.value = JSON.stringify(volumes);
     console.log(this.volumesDataTarget)
