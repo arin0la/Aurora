@@ -3,6 +3,7 @@
     data: {
       save_volumes_target: "form"
     } do |f| %>
+    <%= f.text_field :name %>
     <% @sounds.each do |sound| %>
       <%= audio_tag(sound.name,
         controls: true,
@@ -15,6 +16,6 @@
     <%= audio_tag("Transformation.wav", controls: true, loop: true, id: "transformation") %>
     <%= audio_tag("golden chant.wav", controls: true, loop: true, id: "chant") %>
     <%= f.hidden_field :vols, data: {save_volumes_target: "volumesData"},value: @vols_hash %>
-    <%= f.button :submit %>
+    <%= f.submit "create mix" %>
   <% end %>
 </div>

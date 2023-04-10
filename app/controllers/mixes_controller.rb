@@ -22,7 +22,7 @@ class MixesController < ApplicationController
     @mixes = Mix.new(mix_params)
     vols_hash = JSON.parse(params["mix"]["vols"])
     @mixes.user = current_user
-    if @mixes.save
+    if @mixes.save!
       vols_hash.each do |key, value|
         if value > 0
           mixsound = MixSound.new(volume: (value * 100))
@@ -33,6 +33,7 @@ class MixesController < ApplicationController
       end
       redirect_to mix_path(@mixes)
     else
+      raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -54,7 +55,9 @@ class MixesController < ApplicationController
   end
 
   def mix_params
-    params.require(:mix).permit(:name, :video_id)
+    # this extra slice is necessary so that we don't get an error
+    # from the unpermitted "vols" parameter
+    params.require(:mix).slice(:name).permit(:name)
   end
 
 end
