@@ -4,10 +4,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form"]
 
+
   connect() {
     console.log("hello controller")
     document.querySelectorAll("audio").forEach((ele) => {
-      ele.volume = 0
+      ele.volume = 0;
+      ele.autoplay = true;
+      ele.play();
+      console.log("playing")
     })
   }
 
@@ -19,14 +23,6 @@ export default class extends Controller {
       volumes[`${ele.id}`] = ele.volume
     })
     console.log(volumes);
-    fetch(this.formTarget.action, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: new FormData(this.formTarget)
-    })
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data)
-      })
+
   }
 }

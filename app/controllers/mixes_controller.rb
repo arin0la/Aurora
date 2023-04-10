@@ -1,5 +1,6 @@
 class MixesController < ApplicationController
   before_action :set_mix, only: %i[show destroy]
+  attr_accessor :vols
 
   def index
     @mixes = Mix.all
@@ -12,12 +13,13 @@ class MixesController < ApplicationController
   def new
     @mixes = Mix.new
     @sounds = Sound.all
+    @vols_hash = {}
   end
 
   def create
     @mixes = Mix.new(mix_params)
+    raise
     @mixes.user = current_user
-
     respond_to do |format|
 
       if @mixes.save
