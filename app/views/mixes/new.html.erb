@@ -3,6 +3,7 @@
     data: {
       save_volumes_target: "form"
     } do |f| %>
+    <%= form.label :name, "Mix name:" %>
     <%= f.text_field :name %>
     <% @sounds.each do |sound| %>
       <%= audio_tag(sound.name,
