@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="top">
+    <h1>Choose Your <br/> Happy Place</h1>
+  </div>
+  <h3>Recommended</h3>
+  <div>
+    <% @mixes.each do |mix|  %>
+      <%= video_tag mix.video.mp4, style: 'width: 100px; height: 100px; border-radius: 12px; background: rgba(0, 0, 0, 0.8)' %>
+    <% end %>
+  </div>
+  <div>
+    <span>
+      <h5>Rainforest</h5>
+      <% @videos.each do |video| %>
+        <%# <%= video_tag rails_blob_path(video.mp4) %>
+        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+      <% end %>
+    </span>
+     <span>
+      <h5>Beach</h5>
+      <% @videos.each do |video| %>
+        <%# <%= video_tag rails_blob_path(video.mp4) %>
+        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+      <% end %>
+    </span>
+     <span>
+      <h5>Mountain</h5>
+      <% @videos.each do |video| %>
+        <%# <%= video_tag rails_blob_path(video.mp4) %>
+        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+      <% end %>
+    </span>
+     <span>
+      <h5>Desert</h5>
+      <% @videos.each do |video| %>
+        <%# <%= video_tag rails_blob_path(video.mp4) %>
+        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+      <% end %>
+    </span>
+  </div>
+</div>
