@@ -31,6 +31,7 @@ class MixesController < ApplicationController
           mixsound.save!
         end
       end
+      raise
       redirect_to mix_path(@mixes)
     else
       raise

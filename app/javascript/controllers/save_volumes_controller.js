@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form", "volumesData", "sound"]
 
-
   connect() {
     console.log("hello controller")
     console.log(this.volumesDataTarget)
@@ -23,17 +22,5 @@ export default class extends Controller {
     });
     this.volumesDataTarget.value = JSON.stringify(volumes);
     console.log(this.volumesDataTarget)
-  }
-
-  send(event) {
-    event.preventDefault();
-    const volumes = {};
-    document.querySelectorAll("audio").forEach((ele) => {
-      console.log("a")
-      volumes[`${ele.id}`] = ele.volume
-    })
-    console.log(volumes);
-    this.volumesDataTarget.value = JSON.stringify(volumes);
-    console.log(this.volumesDataTarget);
   }
 }
