@@ -11,10 +11,6 @@
         data: {save_volumes_target: "sound", action: "volumechange->save-volumes#change"},
         id: sound.id) %>
     <% end %>
-    <%#= audio_tag("Brook.wav", controls: true, loop: true, id: "brook") %>
-    <%= audio_tag("Australian Rainforest.wav", controls: true, loop: true, id: "rainforest") %>
-    <%= audio_tag("Transformation.wav", controls: true, loop: true, id: "transformation") %>
-    <%= audio_tag("golden chant.wav", controls: true, loop: true, id: "chant") %>
     <%= f.hidden_field :vols, data: {save_volumes_target: "volumesData"},value: @vols_hash %>
     <%= f.submit "create mix" %>
   <% end %>
