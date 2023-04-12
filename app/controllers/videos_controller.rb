@@ -5,7 +5,6 @@ class VideosController < ApplicationController
   end
   def show
     @video = Video.find(params[:id])
-    # raise
   end
   def video_params
     params.require(:video).permit(:video)
