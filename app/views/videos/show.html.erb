@@ -1,2 +1,22 @@
-<h1>show#page</h1>
-<%= video_tag @video.mp4%>
+<body class="show">
+  <video autoplay loop muted id="video-background">
+    <source src="<%= @video.mp4 %>" type="video/mp4">
+  </video>
+  <div class="content">
+    <div class="icons">
+      <%= link_to videos_path, class: "back-link" do %>
+        <i class="fa-sharp fa-solid fa-chevron-left back-icon"></i>
+      <% end %>
+      <div class="dropdown">
+        <button data-action="click->navbar#myFunction" id="dropbtn" >
+          <i class="fa-sharp fa-solid fa-bars bars"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

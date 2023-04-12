@@ -3,6 +3,7 @@ Mix.destroy_all
 Sound.destroy_all
 MixSound.destroy_all
 Video.destroy_all
+
 puts "Cleaning database..."
 require "faker"
 
@@ -39,3 +40,5 @@ puts "Creating Mixed Sounds and Mixes"
   puts "#{count} mixes made"
 end
 puts "Done✅"
+
+
