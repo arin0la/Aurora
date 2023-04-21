@@ -1,2 +1,69 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+.container-index-page{
+  background-image: url(https://images.unsplash.com/photo-1503149779833-1de50ebe5f8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);
+  height: 100vh;
+  color: whitesmoke;
+}
+
+.header{
+  font-family: $body-font;
+  text-align: center;
+  padding-top: 9%;
+  font-size: 37px;
+  margin-top: -5%;
+}
+
+
+.title-recommended{
+
+  text-align: left;
+  margin-top: 6%;
+}
+
+.card-recommended {
+
+  //position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 234px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  text-shadow: 1px 2px rgba(0, 0, 0, 0.495);
+
+  margin-left: 5%;
+  margin-right: 4%;
+  margin-top: 10%;
+}
+
+.videos-index {
+
+  position: absolute;
+  flex-wrap: nowrap;
+  padding-top: 100%;
+
+}
+
+.container-index-page .row .icon-wrapper {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+.container-index-page .row .icon-wrapper > * {
+
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 30px;
+}
