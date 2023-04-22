@@ -3,10 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 // Define fonts for body and headers
 $body-font: 'GFS Didot', serif;
 $headers-font: 'Cabin', sans-serif;
 $font: 'Roboto', sans-serif;
+$tfont: 'Abril Fatface', cursive;
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
