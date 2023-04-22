@@ -1,15 +1,27 @@
-<div class="container-show"></div>
-  <div class="row">
-    <div class="col-12 video-show">
-      <%= video_tag @video.mp4%>
+<body class="show">
+  <video autoplay loop muted id="video-background">
+    <source src="<%= @video.mp4 %>" type="video/mp4">
+  </video>
+  <div class="content">
+    <div class="icons">
+      <%= link_to videos_path, class: "back-link" do %>
+        <i class="fa-sharp fa-solid fa-chevron-left back-icon"></i>
+      <% end %>
+      <div class="dropdown">
+        <button data-action="click->navbar#myFunction" id="dropbtn" >
+          <i class="fa-sharp fa-solid fa-bars bars"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
     </div>
   </div>
-  <% if @user == current_user %>
+   <% if @user == current_user %>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-     modal
     </button>
-
-    <!-- Modal -->
     <div class="container-modal">
       <div class="row">
         <div class="col-12">
@@ -20,7 +32,6 @@
                   <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
                   <div class="container">
                     <div class="row">
@@ -33,7 +44,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary">Save changes</button>
@@ -45,4 +55,4 @@
       </div>
     </div>
   <% end %>
-</div>
+</body>

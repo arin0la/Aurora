@@ -1,41 +1,76 @@
-<div class="container">
-  <div class="top">
-    <h1>Choose Your <br/> Happy Place</h1>
+  <div class="container">
+    <div class="container-index-page">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-lg-6"></div>
+          <h1 class="header">Choose Your <br/> Happy Place</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-lg-6"></div>
+          <div class="card-recommended">
+            <h3 class="title-recommended">Recommended</h3>
+          </div>
+      </div>
+    </div>
   </div>
   <h3>Recommended</h3>
   <div>
     <% @mixes.each do |mix|  %>
-      <%= video_tag mix.video.mp4, style: 'width: 100px; height: 100px; border-radius: 12px; background: rgba(0, 0, 0, 0.8)' %>
+      <%# <%= video_tag , style: 'width: 100px; height: 100px; border-radius: 12px; background: rgba(0, 0, 0, 0.8)' %>
+      <video autoplay loop muted id="mixes-index">
+          <source src="<%= Video.find(mix.videos_id).mp4 %>" type="video/mp4">
+        </video>
     <% end %>
   </div>
   <div>
     <span>
       <h5>Rainforest</h5>
       <% @videos.each do |video| %>
-        <%# <%= video_tag rails_blob_path(video.mp4) %>
-        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+        <%= link_to video_path(video) do %>
+        <video autoplay loop muted id="video-index">
+          <source src="<%= video.mp4 %>" type="video/mp4">
+        </video>
+        <% end %>
       <% end %>
     </span>
      <span>
       <h5>Beach</h5>
       <% @videos.each do |video| %>
+        <%= link_to video_path(video) do %>
         <%# <%= video_tag rails_blob_path(video.mp4) %>
-        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+          <video autoplay loop muted id="video-index">
+            <source src="<%= video.mp4 %>" type="video/mp4">
+          </video>
+        <% end %>
       <% end %>
     </span>
      <span>
       <h5>Mountain</h5>
       <% @videos.each do |video| %>
-        <%# <%= video_tag rails_blob_path(video.mp4) %>
-        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+        <%= link_to video_path(video) do %>
+        <video autoplay loop muted id="video-index">
+          <source src="<%= video.mp4 %>" type="video/mp4">
+        </video>
+        <% end %>
       <% end %>
     </span>
      <span>
       <h5>Desert</h5>
       <% @videos.each do |video| %>
-        <%# <%= video_tag rails_blob_path(video.mp4) %>
-        <%= video_tag video.mp4, style: 'width: 100px; height: 100px; border-radius: 50%; background: rgba(0, 0, 0, 0.8)' %>
+        <%= link_to video_path(video) do %>
+        <video autoplay loop muted id="video-index">
+          <source src="<%= video.mp4 %>" type="video/mp4">
+        </video>
+        <% end %>
       <% end %>
-    </span>
+     </span>
+    </div>
   </div>
 </div>

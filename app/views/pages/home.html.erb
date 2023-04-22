@@ -1,12 +1,14 @@
-<body class="home-page">
-  <h1 class="title">AURORA</h1>
-  <div class="quote-card">
-    <p class="c">,,</p>
-    <p class="quote">Nature is the purest portal to inner-peace.</p>
-    <p class="Author-name">Angie Weiland Crosby</p>
-  </div>
-  <p class="button-start"><%= link_to  "GET STARTED", videos_path%></p>
-  <% if user_signed_in? == false %>
-    <p class="button-sign-in"><%= link_to "SIGN IN ", new_user_session_path %></p>
-  <% end %>
-</body>
+<div class="container">
+  <body class="home-page">
+    <h1 class="title">AURORA</h1>
+    <div class="quote-card">
+      <p class="c">,,</p>
+      <p class="quote">Nature is the purest portal to inner-peace.</p>
+      <p class="Author-name">Angie Weiland Crosby</p>
+    </div>
+    <p class="button-start"><%= link_to  "GET STARTED", videos_path%></p>
+    <% if user_signed_in? == false %>
+      <p class="button-sign-in"><%= link_to "SIGN IN ", new_user_session_path %></p>
+    <% end %>
+  </body>
+</div>
