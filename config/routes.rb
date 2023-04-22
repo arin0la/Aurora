@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: "videos#index"
+  root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :sounds, only: [:index]
   resources :mixes, except: [:edit, :update]
   get "/mymix", to: "mixes#mymix"
-  resources :videos, only: [:index]
+  resources :videos, only: [:index, :show]
 end
