@@ -72,6 +72,7 @@
 
 .video-display{
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-evenly;
   column-gap: 10px;
   overflow-x: scroll;
